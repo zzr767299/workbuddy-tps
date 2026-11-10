@@ -1,0 +1,21 @@
+# 运行时产物
+out/
+*.log
+*.tmp
+
+# 安装器在本机生成的绝对路径启动器（含用户名，不入库）
+run-hidden.vbs
+
+# 依赖
+node_modules/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# 本机状态（万一有人在项目目录里跑出状态文件）
+*.pid
+state.json

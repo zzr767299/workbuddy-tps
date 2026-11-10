@@ -18,7 +18,7 @@ WorkBuddy 自己只显示「预计消耗 1.1 ~ 48.4」和「已处理 47m9s」�
 
 停靠在输入框底部那行「内容由 AI 生成，请核实重要信息」的右侧，跟着输入框走，不遮挡任何按钮：
 
-```
+```text
 ┌─ 输入框 ───────────────────────────────────────┐
 │  今天帮你做些什么？@ 添加上下文，/调用技能与指令      │
 │  ＋  ⚠️允许完全访问      DeepSeek-V4.1-Flash  ⬆    │
@@ -67,7 +67,7 @@ node tps.mjs selfcheck
 
 六项全 ✔ 就说明环境通了：
 
-```
+```text
 WorkBuddy TPS Monitor 自检
   node            v24.16.0
   WB_HOME         C:\Users\ZZR\.workbuddy  ✔
@@ -163,7 +163,7 @@ powershell -ExecutionPolicy Bypass -File install-autostart.ps1
 powershell -ExecutionPolicy Bypass -File install-autostart.ps1 -Uninstall
 ```
 
-```
+```text
 WorkBuddy.WorkBuddy : G:\Software\WorkBuddy\WorkBuddy.exe
 WorkBuddyTPS        : wscript.exe "...\run-hidden.vbs"     ← 无窗口
 ```
@@ -224,7 +224,7 @@ WorkBuddyTPS        : wscript.exe "...\run-hidden.vbs"     ← 无窗口
 
 ### 日志是折叠的（最容易算错的地方）
 
-```
+```text
 textLen                     = 本行增量
 aggregated.foldedTextLen    = 该 messageId 到目前的累计长度
 aggregated.foldedChunkCount = 已被折叠掉的 chunk 数
@@ -243,7 +243,7 @@ aggregated.foldedChunkCount = 已被折叠掉的 chunk 数
 
 一轮 8 分钟里可能挂机 40 秒。用墙钟算会得到偏低的假数字。
 
-```
+```text
 相邻 step 间隔 > 90s 的部分 → 记为「挂起」，单独显示
 活跃时长 = Σ min(gap, 90s)
 ```
@@ -254,7 +254,7 @@ aggregated.foldedChunkCount = 已被折叠掉的 chunk 数
 
 累加是计费口径（一轮几百万级），看上下文没意义。缓存命中率才用累加：
 
-```
+```text
 上下文   = 末步 inputTokens
 缓存命中 = cacheRead ÷ Σ inputTokens
 ```
@@ -267,7 +267,7 @@ aggregated.foldedChunkCount = 已被折叠掉的 chunk 数
 
 ## 命令行
 
-```
+```text
 node tps.mjs hud [--port 9222] [--once] [--mode float|dock]
 node tps.mjs stream [--interval 800] [--out FILE]
 node tps.mjs turn [--session ID] [--no-save]
@@ -279,7 +279,7 @@ node tps.mjs selfcheck
 
 报表长这样：
 
-```
+```text
 ┌─ WorkBuddy 本轮统计 ──────────────────────────────
 │ 开始      22:39:06   结束  22:44:59
 │ 模型      deepseek-v4.1-flash
@@ -346,7 +346,7 @@ CDP 是 ✘ 说明 WorkBuddy 没带调试端口。关掉 WB 重新用带参数�
 
 WorkBuddy 渲染进程崩掉重启后，`tps.mjs` 会自己重连：
 
-```
+```text
 [hud] CDP 断开（guard），重连中…
 [hud] 重连成功，重注入: hud:dock
 ```
@@ -357,7 +357,7 @@ WorkBuddy 渲染进程崩掉重启后，`tps.mjs` 会自己重连：
 
 两个独立元素，互不干扰：
 
-```
+```text
 fab: true | wbs-root: true | hud: true | hudParent: conversation-input-area__disclaimer
 ```
 
@@ -365,7 +365,7 @@ fab: true | wbs-root: true | hud: true | hudParent: conversation-input-area__dis
 
 ## 项目结构
 
-```
+```text
 workbuddy-tps/
 ├─ tps.mjs                  CLI 入口（hud / stream / turn / session / hook / selfcheck）
 ├─ supervisor.mjs           监督进程：跟随 WorkBuddy 起落，自动重启 HUD
